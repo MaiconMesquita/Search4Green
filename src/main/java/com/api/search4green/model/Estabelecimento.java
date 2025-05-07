@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Entity
@@ -21,9 +22,18 @@ public class Estabelecimento {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long idEstabelecimento;
 
+  @NotBlank(message = "Nome é obrigatório")
   private String nome;
+
+  @NotBlank(message = "Telefone é obrigatório")
+  @Pattern(regexp = "^\\(\\d{2}\\) \\d{4,5}-\\d{4}$", message = "Telefone deve estar no formato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX")
   private String telefone;
+
+  @NotBlank(message = "Descrição é obrigatória")
+  @Size(max = 500, message = "Descrição deve ter no máximo 500 caracteres")
   private String descricao;
+
+  @NotBlank(message = "Tipo é obrigatório")
   private String tipo;
 
   @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)

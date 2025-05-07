@@ -20,7 +20,7 @@ public class Imagem {
   private String url;
 
   @ManyToOne
-  @JoinColumn(name = "estabelecimento_id", referencedColumnName = "idEstabelecimento")
+  @JoinColumn(name = "estabelecimento_id")
   @JsonBackReference
   private Estabelecimento estabelecimento;
 }
