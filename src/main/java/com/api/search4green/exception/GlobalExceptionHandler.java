@@ -1,6 +1,5 @@
 package com.api.search4green.exception;
 
-import java.lang.reflect.Executable;
 import java.util.Map;
 import java.util.stream.Collectors;
 
